@@ -19,7 +19,7 @@ public class InscripcionService {
 
     public String crearInscripcion(Inscripcion nvaInscripcion){
         /*Usuario usuarioActual = nvaInscripcion.getUsuario();/* */
-        if (!this.inscripcionRepository.existsById(nvaInscripcion.getInscripcionID())) { 
+        if (!this.inscripcionRepository.existsById(nvaInscripcion.getInscripcionID())) {
             this.inscripcionRepository.save(nvaInscripcion);
         } return "{\"status\":true,\"message\":\"Inscripcion Exitosa.\",\"alert\":\"success\"}";
         
