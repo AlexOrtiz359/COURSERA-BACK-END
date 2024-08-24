@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import unah.lenguajes.hn.proyecto.models.Orden;
-import unah.lenguajes.hn.proyecto.services.OrdenService;
+import unah.lenguajes.hn.proyecto.models.Inscripcion;
+import unah.lenguajes.hn.proyecto.services.InscripcionService;
 
 
 @RestController
@@ -19,12 +19,13 @@ import unah.lenguajes.hn.proyecto.services.OrdenService;
 public class OrdenController {
     
     @Autowired
-    private OrdenService ordenService;
+    private InscripcionService ordenService;
+    
 
     @GetMapping("/todos")
-    @Operation(summary = "Obtener", description = "Funcion Encargada de obtener todos los comercios registrados en la base de datos")
-    public List<Orden> obtenerOrdenes() {
-        return this.ordenService.obtenerOrdenes();
+    @Operation(summary = "Obtener", description = "Funcion Encargada de obtener todas las Inscripciones registrados en la base de datos")
+    public List<Inscripcion> obtenerOrdenes() {
+        return this.ordenService.obtenerInscripciones();
     }
     
 }
