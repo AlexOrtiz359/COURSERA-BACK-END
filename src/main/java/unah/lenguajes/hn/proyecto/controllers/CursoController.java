@@ -19,7 +19,7 @@ import unah.lenguajes.hn.proyecto.services.CursoService;
 
 @RestController
 @RequestMapping("/api/curso")
-@Tag(name = "Productos", description = "CRUD para Administradores")
+@Tag(name = "Cursos", description = "CRUD para Administradores")
 public class CursoController {
     
     @Autowired
