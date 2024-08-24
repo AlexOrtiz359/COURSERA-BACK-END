@@ -36,23 +36,20 @@ public class UsuarioController {
 
     @GetMapping("/todos")
     @Operation(summary = "Obtener", description = "Funcion Encargada de obtener todos los Usuarios registradas en la base de datos.")
-    public List<Persona> obtenerTodos() {
-        return this.nvoUsuario.obtenerTodos();
+    public List<Usuario> obtenerTodos() {
+        return this.usuarioService.obtenerTodos();
     }
-
-    
 
     @GetMapping("/{dni}")
     @Operation(summary = "Obtener", description = "Funcion Encargada de obtener un Usuario en específico, dandole busqueda mediante su dni(PrimaryKey).")
-    public Persona obtenerUsuario(@PathVariable Long id) {
+    public Usuario obtenerUsuario(@PathVariable Long id) {
         return this.usuarioService.obtenerUsuario(id);
     }
     
-    
-    @PutMapping("/editar/{dni}")
-    @Operation(summary = "Editar", description = "Funcion Encargada de editar una persona en específico, recibe un dni(PrimaryKey) para buscar la persona y un objeto nvaPersona que contiene los nuevos cambios para esta Persona")
-    public Persona editar(@PathVariable String dni, @RequestBody Persona nvaPersona) {
-        return this.usuarioService.editarUsuario(dni,nvaPersona);
+    @PutMapping("/editar/{id}")
+    @Operation(summary = "Editar", description = "Funcion Encargada de editar un Usuario en específico, recibe un dni(PrimaryKey) para buscar la persona y un objeto nvaPersona que contiene los nuevos cambios para esta Persona")
+    public Usuario editar(@PathVariable Long id, @RequestBody Usuario nvoUsuario) {
+        return this.usuarioService.editarUsuario(id,nvoUsuario);
     }
 
     @DeleteMapping("/eliminar/{dni}")
